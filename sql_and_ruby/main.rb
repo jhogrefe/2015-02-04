@@ -17,6 +17,7 @@ DATABASE.results_as_hash = true
 # Do not run this line more than once!
 DATABASE.execute("CREATE TABLE students (id INTEGER, name TEXT)")
 
+require_relative "student.rb"
 
 
 binding.pry
