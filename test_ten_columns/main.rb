@@ -9,7 +9,7 @@ DATABASE = SQLite3::Database.new("restaurants.db")
 # Get results as a Hash, instead of an Array. (Better readability.)
 DATABASE.results_as_hash = true
 
-# Delete existing table of students so I can recreate it.
+# Delete existing table of restuarants so I can recreate it.
 # Just make sure to comment it out after using it, or it
 # will keep overwriting the table every time.
 # DATABASE.execute("DROP TABLE restaurants")
@@ -34,13 +34,13 @@ require_relative "restaurants"
 binding.pry
 
 ## In pry, you can insert data:
-## DATABASE.execute("INSERT INTO students (id, name) VALUES (1, 'Bob')")
+## DATABASE.execute("INSERT INTO restaurants (name, est, type, breakfast, lunch, dinner, address, city, country) VALUES ('Olive Garden', 1978, 'Italian', 0, 1, 1, '7777 Dodge', 'Omaha', 'United States')")
 ##
 ## And view data:
-## DATABASE.execute("SELECT * FROM students")
+## DATABASE.execute("SELECT * FROM restaurants")
 ## 
 ## This returns an array of hashes.
 ## 
-## all_students.each do |row|
-##   puts "The name of a student is #{row['name']}"
+## restaurants.each do |row|
+##   puts "The name of a restaurant is #{row['name']}"
 ## end
