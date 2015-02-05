@@ -3,6 +3,8 @@ class Question
   def initialize(options)
     @student_id    = options[:student_id]
     @question_text = options[:question_text]
+    
+    save
   end
   
   def save

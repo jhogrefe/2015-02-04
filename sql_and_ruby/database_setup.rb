@@ -1,11 +1,3 @@
-# Load/create our database for this program.
-# Use a constant, not a local variable (DATABASE,
-# not db for example).
-# No harm in running this line again; it will not
-# overwrite the database.
-DATABASE = SQLite3::Database.new("cadejo.db")
-
-
 # Get results as a Hash, instead of an Array. (Better readability.)
 DATABASE.results_as_hash = true
 
@@ -19,11 +11,11 @@ DATABASE.results_as_hash = true
 # Do not run this line more than once!
 # You cannot have two primary keys in a table!
 
-DATABASE.execute("CREATE TABLE students 
- (id INTEGER PRIMARY KEY, name TEXT)")
+DATABASE.execute("CREATE TABLE IF NOT EXISTS students 
+ (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, hometown TEXT)")
  
-DATABASE.execute("CREATE TABLE questions 
- (id INTEGER PRIMARY KEY, student_idINTEGER, question_text TEXT)")
+DATABASE.execute("CREATE TABLE IF NOT EXISTS questions 
+ (id INTEGER PRIMARY KEY, student_id INTEGER, question_text TEXT)")
 
 
 ## In pry, you can insert data:
